@@ -1,16 +1,28 @@
 <!DOCTYPE html>
+<html>
 <head>
-<title>Form submission</title>
+	<title></title>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>  
+	<script type="text/javascript">
+		function sendEmail() {
+			Email.send({
+				Host: "smtp.gmail.com",
+				Username : "panthularavi.rk@gmail.com",
+				Password : "Rk@pwr18",
+				To : 'panthularavi.rk@gmail.com',
+				From : "panthularavi.rk@gmail.com",
+				Subject : "rkpower test",
+				Body : "connect",
+			})
+			.then(function(message){
+				alert("mail sent successfully")
+			});
+		}
+	</script>
 </head>
-<body>
-
-<form action="mail_handler.php" method="post">
-First Name: <input type="text" name="first_name"><br>
-Last Name: <input type="text" name="last_name"><br>
-Email: <input type="text" name="email"><br>
-Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
-<input type="submit" name="submit" value="Submit">
-</form>
-
+<body>  
+	<form method="post">
+		<input type="button" value="Send Email" onclick="sendEmail()"/>
+	</form>  
 </body>
 </html>
